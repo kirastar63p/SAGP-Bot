@@ -1,0 +1,20 @@
+{
+  "name": "SAGP-Bot",
+  "version": "0.0.1",
+  "description": "SAGP(Sexy Animate Gril Picture) Bot is a bot use for sending 色图",
+  "main": "index.js",
+  "repository": "https://github.com/kirastar63p/SAGP-Bot.git",
+  "author": "kirasatr63p <2053594644@qq.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "standard": "^16.0.3"
+  },
+  "dependencies": {
+    "cq-websocket": "^2.1.1",
+    "jsonc": "^2.0.0",
+    "lodash": "^4.17.21"
+  }
+}
