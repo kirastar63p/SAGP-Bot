@@ -12,8 +12,11 @@
     "standard": "^16.0.3"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "cq-websocket": "^2.1.1",
+    "jimp": "^0.16.1",
     "jsonc": "^2.0.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "named-regexp-groups": "^1.0.5"
   }
 }

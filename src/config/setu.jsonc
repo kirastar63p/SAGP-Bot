@@ -1,3 +1,48 @@
 {
-    
+    // 色图模块配置
+    // 是否启用
+    "enable": false,
+    // 正则，满足才会发图
+    "reg": "^(JK|jk).*[来來发發给給][张張个個幅点點份]?(?<r18>[Rr]18的?)?(?<keyword>.*?)?的?[色瑟涩][图圖]|^--setu$",
+    // 反和谐方式（0：关闭，1：轻微修改，2：旋转）
+    "antiShielding": 1,
+    // 是否允许私聊使用
+    "allowPM": true,
+    // 发送后这么多秒自动撤回（0 则不撤回，-1 为发送闪照）
+    "deleteTime": 0,
+    // 群内使用冷却时间（秒），每名用户独立，0 则无冷却，私聊无 cd
+    "cd": 10,
+    // 每名用户每日次数限制
+    "limit": 30,
+    // 群组白名单
+    "whiteGroup": [294797135],
+    // 仅允许白名单群使用（与上面的私聊使用是独立的）
+    "whiteOnly": false,
+    // 白名单群组的群内使用冷却时间（秒），每名用户独立，0 则无冷却
+    "whiteCd": 0,
+    // 白名单群组内发送后这么多秒自动撤回（0 则不撤回，-1 为发送闪照）
+    "whiteDeleteTime": 0,
+    // r18 是否只发送地址不发送图片（如果开启，建议设置 `sendPximgProxys`）
+    "r18OnlyUrl": {
+      "private": false, // 私聊
+      "group": false, // 群聊
+      "temp": false // 群临时会话
+    },
+    // r18 图片只通过私聊发送（私聊不会被和谐，因此不会进行反和谐）
+    "r18OnlyPrivate": false,
+    // 允许临时会话发送 r18 结果，用法同 `bot.pmSearchResultTemp`
+    "r18OnlyPrivateAllowTemp": false,
+    // 只允许在白名单群组中发送 r18 setu
+    "r18OnlyInWhite": true,
+    // 色图场景下各种回复文
+    "replys": {
+        // setu 冷却中
+        "setuLimit": "不许色",
+        // 没有符合条件的 setu
+        "setuNotFind": "没有符合条件的色图（",
+        // setu 请求错误
+        "setuError": "瑟图服务器爆炸惹_(:3」∠)_",
+        // 其他不满足发送 setu 的条件
+        "setuReject": "很抱歉，该功能暂不开放_(:3」」"
+    }
 }

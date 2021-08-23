@@ -1,5 +1,6 @@
 const minimist = require('minimist');
 const CQ = require('./CQ.js');
+const { jsonc } = require('jsonc');
 
 exports.parseArgs = (str, enableArray = false, _key = null) => {
   const m = minimist(
@@ -73,3 +74,21 @@ exports.sendMsg2Admin = (bot, config, message) => {
     });
   }
 }
+
+exports.loadJSON = (path) => {
+  try {
+    return jsonc.readSync(path);
+  } catch (e) {
+    const { code, message } = e;
+    let notice = '';
+    if (code === 'ENOENT') {
+      notice = `ERROR: 找不到配置文件 ${e.path}`;
+    } else if (message && message.includes('JSON')) {
+      notice = `ERROR: 配置文件 JSON 格式有误\n${message}`;
+    } else notice = `${e}`;
+
+    // 输出报错并同步至管理QQ
+    console.error(getTime(), notice);
+  }
+}
+
