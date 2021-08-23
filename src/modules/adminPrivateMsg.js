@@ -1,8 +1,6 @@
-import { parseArgs, replyMsg } from '../utils/index.js';
-export default (bot, context, config) => {
-    // 判断是否管理员
-    if (context.user_id !== config.bot.admin) return;
+const { parseArgs, replyMsg } = require('../utils/index.js');
+module.exports = (bot, context) => {
     // 解析变量
     const args = parseArgs(context.message);
-    replyMsg(bot, context, '管理员');
+    replyMsg(bot, context, '测试管理员权限');
 };

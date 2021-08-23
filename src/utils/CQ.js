@@ -1,4 +1,4 @@
-import _ from 'lodash';
+const _ = require('lodash');
 
 class CQCode {
     constructor(type, obj) {
@@ -95,7 +95,7 @@ const at = qq => new CQCode('at', { qq }).toString();
  */
 const reply = id => new CQCode('reply', { id }).toString();
 
-export default {
+module.exports = {
     escape,
     unescape,
     img,

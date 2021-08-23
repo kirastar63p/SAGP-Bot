@@ -1,5 +1,5 @@
-import { jsonc } from 'jsonc';
-import { getTime, sendMsg2Admin } from './index.js';
+const { jsonc } = require('jsonc');
+const { getTime, sendMsg2Admin } = require('./index');
 
 function loadJSON(path) {
     try {
@@ -18,7 +18,7 @@ function loadJSON(path) {
     }
 }
 
-export default function loadConfig({ CONFIG_PATH }, init = false) {
+module.exports = ({ CONFIG_PATH }, init = false) => {
     const conf = loadJSON(CONFIG_PATH);
     if (conf) {
         if (init) {

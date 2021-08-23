@@ -1,10 +1,10 @@
-import { exit } from 'process';
-import { jsonc } from 'jsonc';
+const { exit } = require('process');
+const { jsonc } = require('jsonc');
 
 const { readSync: readJsoncSync } = jsonc;
 
 // 检查配置文件
-export default ({ CONFIG_PATH }) => {
+module.exports =  ({ CONFIG_PATH }) => {
     try {
         // 配置检查
         readJsoncSync(CONFIG_PATH);

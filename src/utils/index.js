@@ -1,7 +1,7 @@
-import minimist from 'minimist';
-import CQ from './CQ.js';
+const minimist = require('minimist');
+const CQ = require('./CQ.js');
 
-export function parseArgs(str, enableArray = false, _key = null) {
+exports.parseArgs = (str, enableArray = false, _key = null) => {
   const m = minimist(
     str
       .replace(/(--\w+)(?:\s*)(\[CQ:)/g, '$1 $2')
@@ -29,7 +29,7 @@ export function parseArgs(str, enableArray = false, _key = null) {
  * @param {boolean} at 是否at发送者
  * @param {boolean} reply 是否使用回复形式
  */
-export async function replyMsg(bot, context, message, at = false, reply = false) {
+exports.replyMsg = (bot, context, message, at = false, reply = false) => {
   if (!bot.isReady() || typeof message !== 'string' || message.length === 0) return;
   if (context.message_type !== 'private') {
     message = `${reply ? CQ.reply(context.message_id) : ''}${at ? CQ.at(context.user_id) : ''}${message}`;
@@ -62,9 +62,9 @@ export async function replyMsg(bot, context, message, at = false, reply = false)
   }
 }
 
-export const getTime = () => new Date().toLocaleString();
+exports.getTime = () => new Date().toLocaleString();
 
-export function sendMsg2Admin(bot, config, message) {
+exports.sendMsg2Admin = (bot, config, message) => {
   const admin = config.bot.admin;
   if (bot.isReady() && admin > 0 && admin !== bot._qq) {
     bot('send_private_msg', {

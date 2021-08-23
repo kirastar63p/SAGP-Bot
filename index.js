@@ -1,12 +1,11 @@
 
 // 引入依赖
-import path from 'path';
+const path = require('path');
 // 引入文件
-import checkConfig from './src/utils/checkConfig.js';
-import LoadConfig from './src/utils/LoadConfig.js';
-import initBot from './src/modules/main.js';
+const checkConfig = require('./src/utils/checkConfig');
+const LoadConfig = require('./src/utils/LoadConfig');
+const initBot = require('./src/modules/main');
 // 定义常量
-const __dirname = path.resolve(path.dirname(''));
 const CONFIG_PATH = path.resolve(__dirname, './src/config/index.jsonc');
 
 // const myEmitter = new EventEmitter();
