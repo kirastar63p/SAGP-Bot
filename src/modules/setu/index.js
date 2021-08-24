@@ -89,17 +89,17 @@ module.exports = function sendSetu(bot, context, config, at = true) {
                         console.error(catUrl);
                         console.error(e);
                         if (String(e).includes('Could not find MIME for Buffer')) return PIXIV_404;
-                        global.replyMsg(bot, context, '反和谐发生错误，图片将原样发送，详情请查看错误日志');
+                        replyMsg(bot, context, '反和谐发生错误，图片将原样发送，详情请查看错误日志');
                     }));
 
                 if (base64 === PIXIV_404) {
-                    global.replyMsg(bot, context, '图片发送失败，可能是网络问题/插画已被删除/原图地址失效');
+                    replyMsg(bot, context, '图片发送失败，可能是网络问题/插画已被删除/原图地址失效');
                     return;
                 }
 
                 const imgType = delTime === -1 ? 'flash' : null;
                 if (privateR18) {
-                    global.bot('send_private_msg', {
+                    bot('send_private_msg', {
                         user_id: context.user_id,
                         group_id: setuConfig.r18OnlyPrivateAllowTemp ? context.group_id : undefined,
                         message: CQ.img(catUrl, imgType),
@@ -110,7 +110,7 @@ module.exports = function sendSetu(bot, context, config, at = true) {
                             const message_id = _.get(r, 'data.message_id');
                             if (delTime > 0 && message_id)
                                 setTimeout(() => {
-                                    global.bot('delete_msg', { message_id });
+                                    bot('delete_msg', { message_id });
                                 }, delTime * 1000);
                         })
                         .catch(e => {
