@@ -1,2 +1,8 @@
 # 屏蔽依赖
 node_modules/
+data/
+logs/
+config.yml
+device.json
+go-cqhttp_windows_386.exe
+session.token

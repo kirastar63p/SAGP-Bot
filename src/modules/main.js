@@ -1,5 +1,5 @@
 /* 
- 本文件为bot主逻辑，包含建立连接，注册监听,回复行为等 
+本文件为bot主逻辑，包含建立连接，注册监听,回复行为等 
  */
 const { CQWebSocket } = require('cq-websocket');
 const { getTime, sendMsg2Admin, replyMsg } = require('../utils');
@@ -7,6 +7,7 @@ const { version } = require('../../package.json');
 // 引入其他模块
 const adminPrivateMsg = require('./adminPrivateMsg');
 const sendSetu = require('./setu');
+const sendZhanbu = require('./zhanbu');
 module.exports = (config) => {
     // 新建bot实例，注册监听
     const bot = new CQWebSocket(config.cqws);
@@ -31,7 +32,7 @@ module.exports = (config) => {
     bot.on('message.private', (_, context) => {
         // 判断管理员回复
         if (context.user_id === config.bot.admin) {
-            // adminPrivateMsg(bot, context);
+            adminPrivateMsg(bot, context);
         };
         // 回复私聊
         switch (context.message) {
@@ -40,7 +41,9 @@ module.exports = (config) => {
                 break;
             }
             default: {
+                
                 sendSetu(bot, context, config, false);
+                sendZhanbu(bot,context,config,false);
                 //通用处理
             }
         }
@@ -49,6 +52,7 @@ module.exports = (config) => {
     // 群聊
     bot.on('message.group', (_, context) => {
         sendSetu(bot, context, config, false);
+        sendZhanbu(bot,context,config,false);
     });
 
     // 发起连接

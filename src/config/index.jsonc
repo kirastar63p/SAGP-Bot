@@ -2,7 +2,7 @@
     // 主配置文件
     // momocow/node-cq-websocket 配置，请参考 https://git.io/JkK9A
     "cqws": {
-        "host": "192.168.100.200",
+        "host": "127.0.0.1",
         "port": 6700,
         "enableAPI": true,
         "enableEvent": true,
@@ -12,7 +12,7 @@
         "reconnectionDelay": 5000
     },
     "bot": {
-        "admin": 2053594644,
+        "admin": 1694212215,
         "replys": {
             // 机器人被私聊和@却没有命中任何指令时的默认回复
             "default": "傻逼，别瞎几把@",
