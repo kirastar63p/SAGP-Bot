@@ -10,8 +10,8 @@ const getConfig = () => {
 
 
 const MakeSeed = (QQNumber) => {
-    const seed = parseInt(Math.random()*10,10)*2+QQNumber;
-    return seed;
+    const seed = parseInt(Math.random()*10,10)*9+QQNumber;
+    return seed;     
 };
 
 module.exports = {

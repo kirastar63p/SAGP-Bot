@@ -1,0 +1,53 @@
+{
+  anonymous: null,
+  font: 0,        
+  group_id: 1127107600,
+  message: '[CQ:at,qq=2371368498]',
+  message_id: -2007340922,
+  message_seq: 873119,
+  message_type: 'group',
+  post_type: 'message',
+  raw_message: '[CQ:at,qq=2371368498]',
+  self_id: 2371368498,
+  sender: {
+    age: 0,
+    area: '',
+    card: '鹤真心乃枝*️⃣',
+    level: '',
+    nickname: '离原半夏🍶',
+    role: 'admin',
+    sex: 'unknown',
+    title: '',
+    user_id: 1694212215
+  },
+  sub_type: 'normal',
+  time: 1629864967,
+  user_id: 1694212215
+}
+
+{
+  anonymous: null,
+  font: 0,
+  group_id: 1127107600,
+  message: '123',
+  message_id: -626293791,
+  message_seq: 873120,
+  message_type: 'group',
+  post_type: 'message',
+  raw_message: '123',
+  self_id: 2371368498,
+  sender: {
+    age: 0,
+    area: '',
+    card: '鹤真心乃枝*️⃣',
+    level: '',
+    nickname: '离原半夏🍶',
+    role: 'admin',
+    sex: 'unknown',
+    title: '',
+    user_id: 1694212215
+  },
+  sub_type: 'normal',
+  time: 1629864984,
+  user_id: 1694212215
+}

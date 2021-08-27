@@ -25,8 +25,10 @@ module.exports = function sendSetu(bot, context, config, at = true) {
         let delTime = setuConfig.deleteTime;
 
         const regGroup = setuRegExec.groups || {};
+        // console.log(regGroup);
         const r18 = regGroup.r18 && !(isGroupMsg && setuConfig.r18OnlyInWhite && !setuConfig.whiteGroup.includes(context.group_id));
         const keyword = regGroup.keyword ? regGroup.keyword.split('&') : undefined;
+        // console.log(keyword);
         const privateR18 = setuConfig.r18OnlyPrivate && r18 && isGroupMsg;
 
         // 群聊还是私聊

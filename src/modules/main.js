@@ -8,6 +8,7 @@ const { version } = require('../../package.json');
 const adminPrivateMsg = require('./adminPrivateMsg');
 const sendSetu = require('./setu');
 const sendZhanbu = require('./zhanbu');
+const sendCurse = require('./curse');
 module.exports = (config) => {
     // 新建bot实例，注册监听
     const bot = new CQWebSocket(config.cqws);
@@ -44,6 +45,7 @@ module.exports = (config) => {
                 
                 sendSetu(bot, context, config, false);
                 sendZhanbu(bot,context,config,false);
+                sendCurse(bot,context,config,false);
                 //通用处理
             }
         }
@@ -51,8 +53,11 @@ module.exports = (config) => {
 
     // 群聊
     bot.on('message.group', (_, context) => {
+        // console.log(context);
         sendSetu(bot, context, config, false);
         sendZhanbu(bot,context,config,false);
+        sendCurse(bot,context,config,false);
+        
     });
 
     // 发起连接
