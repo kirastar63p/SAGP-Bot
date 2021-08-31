@@ -9,7 +9,7 @@ const adminPrivateMsg = require('./adminPrivateMsg');
 const sendSetu = require('./setu');
 const sendZhanbu = require('./zhanbu');
 const sendCurse = require('./curse');
-const sendStreamStatus = require('./stream');
+const sendStreamStatus = require('./bilibili/stream');
 const sendWeatherForecast = require('./weatherForecast');
 module.exports = (config) => {
     // 新建bot实例，注册监听

@@ -88,7 +88,8 @@ exports.loadJSON = (path) => {
     } else notice = `${e}`;
 
     // 输出报错并同步至管理QQ
-    console.error(getTime(), notice);
+    
+    console.error(notice);
   }
 }
 

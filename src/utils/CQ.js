@@ -95,6 +95,15 @@ const at = qq => new CQCode('at', { qq }).toString();
  */
 const reply = id => new CQCode('reply', { id }).toString();
 
+/**
+ * CQ码 回复
+ * @param {number} id 消息ID
+ */
+
+const music = id => new CQCode('reply', { id }).toString();
+
+
+
 module.exports = {
     escape,
     unescape,
@@ -104,4 +113,5 @@ module.exports = {
     share,
     at,
     reply,
+    music
 };

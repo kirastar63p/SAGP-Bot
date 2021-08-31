@@ -1,8 +1,8 @@
 const _ = require('lodash');
 const NamedRegExp = require('named-regexp-groups');
 const Axios = require("axios");
-const { replyMsg } = require('../../utils');
-const CQ = require('../../utils/CQ');
+const { replyMsg } = require('../../../utils');
+const CQ = require('../../../utils/CQ');
 const { getConfig } = require('./utils');
 var util = require('util');
 
@@ -35,9 +35,7 @@ module.exports = function sendStreamStatus(bot, context, config, at = true) {
                 Object.keys(data).forEach(key => {
                     const {title,room_id,live_status,cover_from_user,uname} = data[key];
                     const liveStatus = live_status == 1 ? "直播中" :"未在直播";
-                    // console.log(data[key]);
                     const portal = "https://live.bilibili.com/"+room_id
-                    // const a = await Axios(cover_from_user).then();
                     const singleMessage = util.format("您所关注的主播:%s%s\n直播间标题:%s\n直播间传送门:%s\n直播间封面:%s-------------------------\n",uname,liveStatus,title,portal,CQ.img(cover_from_user));
                     message +=singleMessage;
                 });
