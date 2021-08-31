@@ -9,6 +9,8 @@ const adminPrivateMsg = require('./adminPrivateMsg');
 const sendSetu = require('./setu');
 const sendZhanbu = require('./zhanbu');
 const sendCurse = require('./curse');
+const sendStreamStatus = require('./stream');
+const sendWeatherForecast = require('./weatherForecast');
 module.exports = (config) => {
     // 新建bot实例，注册监听
     const bot = new CQWebSocket(config.cqws);
@@ -46,6 +48,8 @@ module.exports = (config) => {
                 sendSetu(bot, context, config, false);
                 sendZhanbu(bot,context,config,false);
                 sendCurse(bot,context,config,false);
+                sendWeatherForecast(bot,context,config,false);
+                sendStreamStatus(bot,context,config,false);
                 //通用处理
             }
         }
@@ -57,7 +61,8 @@ module.exports = (config) => {
         sendSetu(bot, context, config, false);
         sendZhanbu(bot,context,config,false);
         sendCurse(bot,context,config,false);
-        
+        sendWeatherForecast(bot,context,config,false);
+        sendStreamStatus(bot,context,config,false);
     });
 
     // 发起连接

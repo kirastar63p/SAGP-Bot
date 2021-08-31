@@ -38,7 +38,7 @@ module.exports = function sendZhanbu(bot, context, config, at = true) {
                 const character = ret.result.character;
                 // `SELECT filename FROM files WHERE username = ? AND checksum = ?`, username, checksum
                 const message =util.format(
-                    `今日你的分数为: %s\n凶吉: %s \n今日处事提示: %s \n今日评价: %s `,score,luck,content,character);
+                    CQ.at(context.sender.user_id)+`\n今日你的分数为: %s\n凶吉: %s \n今日处事提示: %s \n今日评价: %s \n`,score,luck,content,character);
             // console.log(message);
             replyMsg(bot, context, message, false, at);
             })

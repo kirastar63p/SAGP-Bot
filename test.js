@@ -1,7 +1,9 @@
-const MakeSeed = (QQNumber) =>{
-    
-    const seed = parseInt(Math.random()*10,10)*9;
-    return seed;
-}
+import {Tesseract} from 'tesseract.js';
 
-console.log(MakeSeed(756202013));
+Tesseract.recognize(
+  'https://tesseract.projectnaptha.com/img/eng_bw.png',
+  'eng',
+  { logger: m => console.log(m) }
+).then(({ data: { text } }) => {
+  console.log(text);
+})

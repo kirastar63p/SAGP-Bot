@@ -17,38 +17,26 @@ module.exports = function sendCurse(bot, context, config, at = true) {
     // 骂人部分
     const curseReg = new NamedRegExp(curseConfig.cursereg);
     const curseRegExec = curseReg.exec(CQ.unescape(context.message));
+    const curseDictionary = curseConfig.curseDictionary;
 
-    if(ottoRegExec){
+    if (ottoRegExec) {
         const otto = curseConfig.otto;
-        const yulu = otto[parseInt(Math.random()*otto.length)];
+        const yulu = otto[parseInt(Math.random() * otto.length)];
         const message = yulu;
         replyMsg(bot, context, message, false, at);
     }
     // 指定人
-    if(curseRegExec){
-        const regGroup = curseRegExec.groups || {};   
-        let keyword = regGroup.keyword ? regGroup.keyword.split('&') : undefined;
-        
+    if (curseRegExec) {
+        const regGroup = curseRegExec.groups || {};
+        const keyword = regGroup.keyword ? regGroup.keyword.split('&') : undefined;
         // 截取到QQ
-        if(keyword!== undefined && keyword[0].slice(10,-1) !=='' ){
-            keyword = keyword[0].slice(10,-1);
-            // 指定骂人时候的语录
-            if(keyword == curseConfig.admin){
-                // console.log(context);
-                const message ="想骂你爹？"+CQ.at(context.sender.user_id);
-                return replyMsg(bot, context, message, false, at);
-            }
-            const curseDictionary = curseConfig.curseDictionary;
-            const yulu = curseDictionary[parseInt(Math.random()*curseDictionary.length)];
-            const message = yulu+CQ.at(keyword);
+        if (keyword !== undefined) {
+            if (keyword == curseConfig.admin) return replyMsg(bot, context, "想骂你爹？" + CQ.at(context.sender.user_id), false, at);
+            const message = curseDictionary[parseInt(Math.random() * curseDictionary.length)] + CQ.at(keyword);
             replyMsg(bot, context, message, false, at);
-        }else{
-            message = curseConfig.NotFound;
-            replyMsg(bot, context, message, false, at);
+        } else {
+            replyMsg(bot, context, curseConfig.NotFound, false, at);
         }
-        
-        
-        
     }
-    
+
 }
