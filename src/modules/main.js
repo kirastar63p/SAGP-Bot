@@ -8,8 +8,10 @@ const { version } = require('../../package.json');
 const adminPrivateMsg = require('./adminPrivateMsg');
 const sendSetu = require('./setu');
 const sendZhanbu = require('./zhanbu');
+// const sendMusic = require('./music');
 const sendCurse = require('./curse');
 const sendStreamStatus = require('./bilibili/stream');
+const watchStreamStatus = require('./bilibili/watch');
 const sendWeatherForecast = require('./weatherForecast');
 module.exports = (config) => {
     // 新建bot实例，注册监听
@@ -35,7 +37,7 @@ module.exports = (config) => {
     bot.on('message.private', (_, context) => {
         // 判断管理员回复
         if (context.user_id === config.bot.admin) {
-            adminPrivateMsg(bot, context);
+            // adminPrivateMsg(bot, context);
         };
         // 回复私聊
         switch (context.message) {
@@ -50,6 +52,8 @@ module.exports = (config) => {
                 sendCurse(bot,context,config,false);
                 sendWeatherForecast(bot,context,config,false);
                 sendStreamStatus(bot,context,config,false);
+                // sendMusic(bot,context,config,false);
+                watchStreamStatus(bot,context,config,false);
                 //通用处理
             }
         }

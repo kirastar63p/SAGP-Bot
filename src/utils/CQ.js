@@ -95,12 +95,14 @@ const at = qq => new CQCode('at', { qq }).toString();
  */
 const reply = id => new CQCode('reply', { id }).toString();
 
-/**
- * CQ码 回复
- * @param {number} id 消息ID
- */
 
-const music = id => new CQCode('reply', { id }).toString();
+/**
+ * 
+ * @param {string} 期望值：qq 163 xm，分别表示使用 QQ 音乐、网易云音乐、虾米音乐 
+ * @param {number} id 歌曲ID
+ * @returns 
+ */
+const music = (type, id) => new CQCode('music', { type, id }).toString();
 
 
 
